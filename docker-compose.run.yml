@@ -1,0 +1,45 @@
+# ── 同事使用：直接拉取镜像运行，无需源码 ──
+# 使用方法：docker compose -f docker-compose.run.yml up -d
+
+services:
+  # ── PostgreSQL ──────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: qr-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: qruser
+      POSTGRES_PASSWORD: qrpass2026
+      POSTGRES_DB: qr_label_matching
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  # ── Next.js 前端（使用预构建镜像）────────────────────
+  nextjs-frontend:
+    # 注意：当前实际构建出的镜像是 ocr_reader-auto-nextjs-frontend:latest
+    # （生产镜像 qr-label-frontend:latest 之前构建失败，未生成）
+    image: ocr_reader-auto-nextjs-frontend:latest
+    container_name: qr-nextjs
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=qr_label_matching
+      - DB_USER=qruser
+      - DB_PASS=qrpass2026
+      - DB_SSL=false
+      # BarTender 打印代理地址（服务端代理模式，避免浏览器跨域限制）
+      # 若 BarTender 代理跑在服务器宿主机，Linux Docker 常用：http://172.17.0.1:3001/print
+      # 若跑在独立容器或本机，请填写实际可访问地址
+      - BARTENDER_URL=http://localhost:3001/print
+      # 说明：只有使用 IPP/CUPS 手动打印路径时才需要配置 PRINTER_URI。
+
+volumes:
+  pgdata:

@@ -1,0 +1,36 @@
+# ── 敏感信息（禁止上传）─────────────────────────
+# 环境变量文件（含数据库密码）
+.env
+.env.*
+!.env.example
+
+# 服务器运维脚本（硬编码了服务器密码/IP）
+scripts/
+
+# 残缺的旧版 Flask 项目（仅剩 app.py，依赖缺失）
+qr-label-matching-app/
+
+# 本地 HTTPS 开发证书（含私钥）
+qr-label-nextjs-app/certificates/
+
+# IDE 内部计划/会话数据（非项目代码）
+.codebuddy/
+
+# ── Docker 镜像包（体积大，不应入库）───────────
+*.tar
+*.tar.gz
+*.tgz
+
+# ── 依赖与构建产物 ─────────────────────────────
+node_modules/
+.next/
+out/
+dist/
+build/
+
+# ── 日志与临时文件 ─────────────────────────────
+*.log
+*.err
+*.bak
+.DS_Store
+Thumbs.db

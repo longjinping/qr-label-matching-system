@@ -1,0 +1,220 @@
+.page {
+  min-height: 100dvh;
+  padding: 24px;
+  background: linear-gradient(135deg, #f7f6f2 0%, #eef2f1 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(15, 106, 113, 0.06) 0%, transparent 35%),
+    radial-gradient(circle at 80% 70%, rgba(161, 44, 123, 0.05) 0%, transparent 30%);
+  pointer-events: none;
+}
+
+.decorCircle,
+.decorCircleSecondary {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.decorCircle {
+  width: 360px;
+  height: 360px;
+  background: rgba(15, 106, 113, 0.12);
+  top: -120px;
+  left: -120px;
+}
+
+.decorCircleSecondary {
+  width: 300px;
+  height: 300px;
+  background: rgba(161, 44, 123, 0.1);
+  bottom: -100px;
+  right: -100px;
+}
+
+.card {
+  width: 100%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 24px;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.06),
+    0 1px 3px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 52px 44px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(8px);
+}
+
+.brand {
+  margin-bottom: 40px;
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #0f6a71 0%, #128e96 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(15, 106, 113, 0.25);
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 800;
+  color: #1a3c40;
+  margin: 0 0 8px;
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: #7a8b8a;
+  margin: 0;
+  font-weight: 500;
+}
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px 22px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #eceae5;
+  color: #1a3c40;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.menuItem:hover {
+  border-color: #0f6a71;
+  box-shadow: 0 10px 28px rgba(15, 106, 113, 0.12);
+  transform: translateY(-3px);
+}
+
+.menuItemMain {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #0f6a71 0%, #128e96 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+  box-shadow: 0 6px 14px rgba(15, 106, 113, 0.2);
+}
+
+.iconCheck {
+  background: linear-gradient(135deg, #a12c7b 0%, #c23d8e 100%);
+  box-shadow: 0 6px 14px rgba(161, 44, 123, 0.2);
+}
+
+.menuItemText {
+  text-align: left;
+}
+
+.menuItemText strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #1f2d2e;
+}
+
+.menuItemText span {
+  font-size: 13px;
+  color: #7d8c8b;
+  line-height: 1.45;
+}
+
+.enterButton {
+  flex-shrink: 0;
+  border-radius: 999px;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  background: #0f6a71;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(15, 106, 113, 0.22);
+  transition: all 0.25s ease;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.menuItem:hover .enterButton {
+  background: #0d5b61;
+  box-shadow: 0 4px 14px rgba(15, 106, 113, 0.32);
+  transform: translateY(-1px);
+}
+
+.enterButton:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(15, 106, 113, 0.2);
+}
+
+.footer {
+  margin-top: 30px;
+  font-size: 12px;
+  color: #a0adaa;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 520px) {
+  .card {
+    padding: 36px 22px;
+  }
+
+  .menuItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .enterButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

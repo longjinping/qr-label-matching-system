@@ -1,0 +1,140 @@
+.page {
+  min-height: 100dvh;
+  padding: 24px;
+  background: #f3f4ef;
+  color: #22261d;
+  font-family: var(--font-geist-sans);
+}
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.title {
+  font-size: 1.45rem;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.secondaryButton {
+  border-radius: 999px;
+  border: none;
+  padding: 0.55rem 1.2rem;
+  background: #0f6a71;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 6px rgba(15, 106, 113, 0.18);
+  transition: all 0.25s ease;
+  letter-spacing: 0.03em;
+}
+
+.secondaryButton:hover {
+  background: #0d5b61;
+  box-shadow: 0 4px 12px rgba(15, 106, 113, 0.3);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.exportButton {
+  border-radius: 999px;
+  border: none;
+  padding: 0.55rem 1.2rem;
+  background: #2a7f36;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 6px rgba(42, 127, 54, 0.18);
+  transition: all 0.25s ease;
+  letter-spacing: 0.03em;
+}
+
+.exportButton:hover:not(:disabled) {
+  background: #236b2d;
+  box-shadow: 0 4px 12px rgba(42, 127, 54, 0.3);
+  transform: translateY(-1px);
+}
+
+.exportButton:disabled {
+  background: #a3b2a3;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 20px auto 0;
+}
+
+.empty {
+  text-align: center;
+  padding: 40px;
+  color: #667064;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px dashed #bac3b8;
+}
+
+.tableWrap {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #d6dad2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  table-layout: fixed;
+}
+
+.table thead {
+  background: #e8ebe5;
+}
+
+.table th,
+.table td {
+  padding: 10px 8px;
+  text-align: left;
+  border-bottom: 1px solid #e2e5df;
+  white-space: normal;
+  word-break: break-all;
+}
+
+.table th {
+  font-weight: 700;
+  color: #2f382f;
+  position: sticky;
+  top: 0;
+  background: #e8ebe5;
+}
+
+.table tbody tr:hover {
+  background: #f6f7f4;
+}
+
+.table td {
+  color: #3a443a;
+}

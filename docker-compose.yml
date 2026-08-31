@@ -1,0 +1,37 @@
+services:
+  # ── PostgreSQL ──────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: qr-db
+    restart: unless-stopped
+    command: >
+      postgres
+      -c max_connections=1000
+    environment:
+      POSTGRES_USER: qruser
+      POSTGRES_PASSWORD: qrpass2026
+      POSTGRES_DB: qr_label_matching
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  # ── Next.js Frontend (port 3000) ────────────────────────
+  nextjs-frontend:
+    build:
+      context: ./qr-label-nextjs-app
+      dockerfile: Dockerfile.dev
+    container_name: qr-nextjs
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./qr-label-nextjs-app/src:/app/src
+      - ./qr-label-nextjs-app/public:/app/public
+
+volumes:
+  pgdata:

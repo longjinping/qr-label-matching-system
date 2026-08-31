@@ -1,0 +1,533 @@
+.page {
+  min-height: 100dvh;
+  padding: 24px;
+  background: #f3f4ef;
+  color: #22261d;
+  font-family: var(--font-geist-sans);
+}
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.title {
+  font-size: 1.45rem;
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  color: #667064;
+  font-size: 0.92rem;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stepChip {
+  background: #ffffff;
+  border: 1px solid #ced5cd;
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.84rem;
+}
+
+.stepsWrap {
+  max-width: 1200px;
+  margin: 14px auto 20px;
+  padding: 12px;
+  border: 1px solid #cfd4cd;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.stepsBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+}
+
+.stepNode {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 116px;
+}
+
+.stepCircle {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #bbc3b9;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.stepLabel {
+  margin-left: 8px;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.stepLine {
+  flex: 1;
+  height: 2px;
+  margin-left: 10px;
+  background: #d7ddd5;
+}
+
+.doneLine {
+  background: #2f7e49;
+}
+
+.done {
+  color: #2f7e49;
+  border-color: #2f7e49;
+}
+
+.active {
+  color: #0f5f7f;
+  border-color: #0f5f7f;
+}
+
+.idle {
+  color: #8a9388;
+}
+
+.mainGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.gunSection {
+  max-width: 1200px;
+  margin: 0 auto 14px;
+  border: 1px solid #cfd5ce;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.gunHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.gunHead h3 {
+  font-size: 0.98rem;
+}
+
+.gunHead span {
+  font-size: 0.82rem;
+  color: #667064;
+}
+
+.gunRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.gunInput {
+  width: 100%;
+  padding: 0.58rem 0.65rem;
+  border: 1px solid #bac3b8;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #cfd5ce;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panelHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.panelHead h2 {
+  font-size: 1rem;
+}
+
+.panelHead span {
+  color: #667064;
+  font-size: 0.82rem;
+}
+
+.qrFrame {
+  min-height: 180px;
+  border: 1px dashed #bbc5b8;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: #fbfcfa;
+}
+
+.qrImage {
+  width: 180px;
+  height: 180px;
+}
+
+.dataBlock {
+  border: 1px solid #d7ddd5;
+  border-radius: 10px;
+  background: #f8faf6;
+  padding: 10px;
+  display: grid;
+  gap: 4px;
+  min-height: 120px;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+.selectLabel {
+  display: grid;
+  gap: 6px;
+  font-size: 0.85rem;
+}
+
+.selectField {
+  padding: 0.55rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #bac3b8;
+  background: #ffffff;
+}
+
+.primaryButton,
+.secondaryButton {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.62rem 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primaryButton {
+  background: #0f6a71;
+  color: #ffffff;
+}
+
+.secondaryButton {
+  background: #0f6a71;
+  color: #ffffff;
+  border-color: transparent;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(15, 106, 113, 0.18);
+  transition: all 0.25s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.03em;
+  padding: 0.55rem 1.2rem;
+}
+
+.secondaryButton:hover {
+  background: #0d5b61;
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(15, 106, 113, 0.3);
+  transform: translateY(-1px);
+}
+
+.secondaryButton:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(15, 106, 113, 0.2);
+}
+
+.primaryButton:disabled,
+.secondaryButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.scanHint {
+  font-size: 0.85rem;
+  color: #4a5a4a;
+}
+
+.matchBadge {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e4620;
+  background: #e6f4e8;
+  border: 1px solid #4caf50;
+  border-radius: 8px;
+  padding: 8px 16px;
+  text-align: center;
+}
+
+.errorBadge {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #5c1616;
+  background: #fdf2f2;
+  border: 1px solid #ef5350;
+  border-radius: 8px;
+  padding: 8px 16px;
+  text-align: center;
+}
+
+.resultBanner {
+  max-width: 1200px;
+  margin: 16px auto 0;
+  border-radius: 12px;
+  border: 1px solid;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.resultOverlay {
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  z-index: 10000;
+  border-radius: 16px;
+  border: 4px solid;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+  animation: popIn 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: translate(-50%, -30px) scale(0.9); }
+  100% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+
+.overlayTitle {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.overlaySubtitle {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.overlayBadge {
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: #ffffff;
+  border: 2px solid currentColor;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.matchBanner {
+  background: #e6f4e8;
+  border-color: #4caf50;
+  color: #1e4620;
+}
+
+.errorBanner {
+  background: #fdf2f2;
+  border-color: #ef5350;
+  color: #5c1616;
+}
+
+.badge {
+  border: 1px solid #b8c2b4;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 0.4rem 0.65rem;
+  font-weight: 700;
+}
+
+.dbSection {
+  max-width: 1200px;
+  margin: 20px auto 0;
+  padding: 14px;
+  border: 1px solid #cfd5ce;
+  border-radius: 12px;
+  background: #ffffff;
+  overflow: auto;
+}
+
+.sectionTitle {
+  margin-bottom: 10px;
+  font-size: 0.94rem;
+  color: #4d584d;
+}
+
+.tabHeader {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tabButton {
+  border: 1px solid #cdd5cb;
+  background: #f2f6f1;
+  border-radius: 8px;
+  padding: 0.46rem 0.62rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.activeTab {
+  background: #0f6a71;
+  border-color: #0f6a71;
+  color: #ffffff;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+.table th,
+.table td {
+  border-bottom: 1px solid #e2e7de;
+  text-align: left;
+  padding: 0.56rem;
+  white-space: nowrap;
+}
+
+.table th {
+  color: #5c675b;
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 22, 16, 0.52);
+  display: grid;
+  place-items: center;
+  z-index: 20;
+  padding: 16px;
+}
+
+.modalBox {
+  width: min(560px, 100%);
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #cfd5ce;
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.modalTitle {
+  font-size: 1.06rem;
+}
+
+.modalSubtitle {
+  font-size: 0.88rem;
+  color: #667064;
+}
+
+.alertOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 22, 16, 0.52);
+  display: grid;
+  place-items: center;
+  z-index: 100;
+  padding: 16px;
+}
+
+.alertBox {
+  width: min(420px, 100%);
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #cfd5ce;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.alertMessage {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #c62828;
+  text-align: center;
+}
+
+.optionList {
+  display: grid;
+  gap: 8px;
+  max-height: 280px;
+  overflow: auto;
+}
+
+.optionButton {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccd4ca;
+  padding: 0.6rem 0.7rem;
+  background: #f8faf6;
+  cursor: pointer;
+}
+
+.cameraReader {
+  min-height: 300px;
+  border-radius: 10px;
+  border: 1px solid #c8d1c7;
+  overflow: hidden;
+}
+
+.cameraHint {
+  font-size: 0.82rem;
+  color: #697268;
+}
+
+@media (max-width: 900px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .gunRow {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

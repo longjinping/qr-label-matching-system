@@ -1,0 +1,55 @@
+# ── 生产环境部署配置 ────────────────────────────────────
+# 使用方法：
+#   1. 确保 .env.production 文件存在且配置正确
+#   2. docker compose -f docker-compose.prod.yml --env-file .env.production up -d --build
+#
+# 特性：
+#   - 使用 Dockerfile 多阶段构建（production standalone）
+#   - 不挂载源码，完全基于镜像运行
+#   - PostgreSQL 仅对内网暴露，不映射到宿主机端口
+#   - 自动重启策略
+
+services:
+  # ── PostgreSQL ──────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: qr-db
+    restart: always
+    # 注意：保持 PostgreSQL 默认配置（max_connections=100），与线上现有行为一致
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+    # 生产环境不暴露端口到宿主机，仅容器间通信
+    # 如需外部连接，取消下面注释并配置防火墙
+    # ports:
+    #   - "127.0.0.1:5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # ── Next.js Frontend (Production) ───────────────────────
+  nextjs-frontend:
+    build:
+      context: ./qr-label-nextjs-app
+      dockerfile: Dockerfile
+    container_name: qr-nextjs
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file:
+      - .env.production
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+
+volumes:
+  pgdata:
